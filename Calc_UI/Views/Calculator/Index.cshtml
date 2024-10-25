@@ -1,0 +1,45 @@
+﻿@{
+    ViewBag.Title = "Calculator";
+}
+
+<div class="container d-flex justify-content-center mb-3">
+    <img class="img-fluid" style="width: 30%; height: 200px;" src="~/images/cat-side-eye-cat.gif">
+</div>
+
+<h2 class="text-center">Calculator</h2>
+
+<form method="post" action="/Calculator/Calculate">
+    <input type="text" class="form-control mb-4"  name="firstNumber" placeholder="Enter first number" />
+    <input type="text" class="form-control mb-4"  name="secondNumber" placeholder="Enter second number" />
+
+
+
+    <div class="container mb-4">
+        <div class="row">
+            <div class="col-3">
+                <button class="btn btn-warning px-4 w-100" type="submit" name="operation" value="+">+</button>
+            </div>
+            <div class="col-3">
+                <button class="btn btn-warning px-4 w-100 " type="submit" name="operation" value="-">-</button>
+            </div>
+            <div class="col-3">
+                <button class="btn btn-warning px-4 w-100" type="submit" name="operation" value="*">X</button>
+            </div>
+            <div class="col-3">
+                <button class="btn btn-warning px-4 w-100" type="submit" name="operation" value="/">/</button>
+            </div>
+        </div>
+    </div>
+</form>
+
+
+
+@if (ViewBag.Result != null)
+{
+    <p class="h3 text-center" style="margin-top: 200px;">Result: @ViewBag.Result</p>
+}
+
+@if (ViewBag.Error != null)
+{
+    <p style="color: red;">Error: @ViewBag.Error</p>
+}
